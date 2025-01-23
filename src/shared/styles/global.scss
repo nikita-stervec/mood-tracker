@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Pangolin';
+  src: url(../assets/fonts/Pangolin/Pangolin-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  font-family: 'Pangolin', sans-serif;
+  font-size: 20px;
+}
+
+:root {
+  --dots-color: rgba(255, 255, 255, 0.1);
+  --main-secton-bg-color: rgba(104, 77, 255, 0.05);
+  --contrast-bg-color: rgba(130, 50, 140, 0.05);
+}
+
+[data-theme='light'] {
+  --dots-color: rgb(200, 200, 200);
+  --main-secton-bg-color: rgba(229, 220, 255, 0.5);
+  --contrast-bg-color: rgba(230, 82, 250, 0.048);
+}
+
+body {
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.dots-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--dots-color);
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,44 @@
+@use '@/shared/styles/mixins.scss' as *;
+
+.wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.section {
+  @include flex-center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.text {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 32px;
+}
+
+.form {
+  @include flex-center;
+  width: 100%;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.button_section {
+  @include flex-center;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 300px;
+
+  button {
+    margin-top: 16px;
+  }
+}
