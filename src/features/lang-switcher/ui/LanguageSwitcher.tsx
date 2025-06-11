@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Group } from '@mantine/core';
 import { UserState } from '@/entities/User/model/User';
 import { UserLanguage } from '@/entities/User/model/types/User';
+import { SimpleButton } from '@/shared/ui';
 
 interface LanguageSwitcherProps {
   color?: string;

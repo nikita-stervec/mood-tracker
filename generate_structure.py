@@ -14,7 +14,7 @@ def generate_tree(directory, indent=''):
             tree.append(f"{indent}- `{item}`")
     return tree
 
-project_directory = '.'  # Укажите путь к вашей директории
+project_directory = '.'  
 tree = generate_tree(project_directory)
 with open('project_structure.md', 'w') as f:
     f.write("# Структура проекта\n\n")

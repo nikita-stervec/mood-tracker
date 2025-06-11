@@ -7,10 +7,15 @@ import {
   Button,
   Group,
 } from '@mantine/core';
-import { IconCalendar, IconLogout, IconSettings } from '@tabler/icons-react';
+import {
+  IconCalendar,
+  IconLogout,
+  IconQuestionMark,
+  IconSettings,
+} from '@tabler/icons-react';
 import { LanguageSwitcher } from '@/features/lang-switcher';
 import { ThemeSwitcher } from '@/features/theme-switcher';
-import { TextLogo } from '@/shared/ui';
+import { SimpleButton, TextLogo } from '@/shared/ui';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -60,7 +65,25 @@ export const HeaderComponent = ({ isAuthPage }: HeaderProps) => {
       </Title>
 
       <Group gap="sm">
-        <Button
+        <SimpleButton
+          variant="light"
+          rightSection={<IconQuestionMark size="1.2rem" />}
+          onClick={() => navigate('/about')}
+          style={{
+            backgroundColor: isDark
+              ? theme.colors.dark[6]
+              : theme.colors.gray[0],
+            color: isDark ? theme.white : theme.colors.dark[7],
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+          }}
+        >
+          {t('header.about')}
+        </SimpleButton>
+
+        <SimpleButton
           variant="light"
           leftSection={<IconCalendar size="1.2rem" />}
           onClick={() => navigate('/track')}
@@ -75,12 +98,12 @@ export const HeaderComponent = ({ isAuthPage }: HeaderProps) => {
             gap: '8px',
           }}
         >
-          {t('track')}
-        </Button>
+          {t('header.track')}
+        </SimpleButton>
 
         {user.role === 'guest' ? (
           <>
-            <Button
+            <SimpleButton
               variant="light"
               onClick={() => navigate('/login')}
               style={{
@@ -94,9 +117,9 @@ export const HeaderComponent = ({ isAuthPage }: HeaderProps) => {
                 gap: '8px',
               }}
             >
-              {t('login')}
-            </Button>
-            <Button
+              {t('header.login')}
+            </SimpleButton>
+            <SimpleButton
               variant="light"
               onClick={() => navigate('/register')}
               style={{
@@ -110,11 +133,11 @@ export const HeaderComponent = ({ isAuthPage }: HeaderProps) => {
                 gap: '8px',
               }}
             >
-              {t('register')}
-            </Button>
+              {t('header.register')}
+            </SimpleButton>
           </>
         ) : (
-          <Button
+          <SimpleButton
             variant="light"
             onClick={() => navigate('/profile')}
             style={{
@@ -129,7 +152,7 @@ export const HeaderComponent = ({ isAuthPage }: HeaderProps) => {
             }}
           >
             {user.name ? user.name : user.email}
-          </Button>
+          </SimpleButton>
         )}
 
         <Menu shadow="md" width={185} position="bottom-end">
@@ -148,12 +171,12 @@ export const HeaderComponent = ({ isAuthPage }: HeaderProps) => {
                 gap: '8px',
               }}
             >
-              {t('settings')}
+              {t('header.settings')}
             </Button>
           </Menu.Target>
 
           <Menu.Dropdown>
-            <Menu.Label>{t('language')}</Menu.Label>
+            <Menu.Label>{t('header.language')}</Menu.Label>
             <Menu.Item
               onClick={(e) => e.stopPropagation()}
               style={{
@@ -168,14 +191,14 @@ export const HeaderComponent = ({ isAuthPage }: HeaderProps) => {
               />
             </Menu.Item>
 
-            <Menu.Label>{t('theme')}</Menu.Label>
+            <Menu.Label>{t('header.theme')}</Menu.Label>
             <Menu.Item>
               <ThemeSwitcher
                 color={isDark ? theme.colors.violet[3] : theme.colors.dark[7]}
               />
             </Menu.Item>
 
-            <Menu.Label>{t('logout')}</Menu.Label>
+            <Menu.Label>{t('header.logout')}</Menu.Label>
             <Menu.Item>
               <Button
                 fullWidth

@@ -13,11 +13,14 @@ body {
   box-sizing: border-box;
   font-family: 'Pangolin', sans-serif;
   font-size: 20px;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 :root {
   --dots-color: rgba(255, 255, 255, 0.1);
   --main-secton-bg-color: rgba(104, 77, 255, 0.05);
+  --highlight-text-color: rgba(104, 77, 255, 0.2);
   --contrast-bg-color: rgba(130, 50, 140, 0.05);
 }
 

@@ -1,35 +1,33 @@
-import { Button } from '@mantine/core';
-import React from 'react';
+import { Button, type ButtonProps } from '@mantine/core';
 
-interface ButtonProps {
-  text: string;
-  variant?: string;
-  color?: 'violet' | string | undefined;
+interface SimpleButtonProps extends ButtonProps {
+  children: string;
   wide?: boolean;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
 }
 
 export const SimpleButton = ({
-  text,
+  children,
   variant = 'light',
   color = 'violet',
   wide = false,
   onClick,
   type = 'button',
   disabled = false,
-}: ButtonProps) => {
+  ...props
+}: SimpleButtonProps) => {
   return (
     <Button
       variant={variant}
-      color={color || undefined}
+      color={color}
       onClick={onClick}
       fullWidth={wide}
       type={type}
       disabled={disabled}
+      {...props}
     >
-      {text}
+      {children}
     </Button>
   );
 };

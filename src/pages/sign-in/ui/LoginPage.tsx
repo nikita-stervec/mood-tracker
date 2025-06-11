@@ -23,36 +23,33 @@ export const LoginPage = () => {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['section']}>
-        <span className={styles['text']}>{t('goToLogin')}</span>
+        <span className={styles['text']}>{t('auth.login')}</span>
         <form className={styles['form']} onSubmit={onSubmit}>
           <div className={styles['input']}>
             <SimpleInput
               email={true}
               type="email"
-              placeholder={t('email')}
+              placeholder={t('auth.email')}
               value={email}
               onChange={handleEmailChange}
             />
             <SecretInput
-              placeholder={t('password')}
+              placeholder={t('auth.password')}
               value={password}
               onChange={handlePasswordChange}
             />
           </div>
           {error && <p className={styles['error']}>{error}</p>}
           <div className={styles['button_section']}>
-            <SimpleButton type="submit" text={t('login')} wide={true} />
-            <SimpleButton
-              onClick={handleGuestClick}
-              text={t('goToGuest')}
-              color="indigo"
-              wide={true}
-            />
-            <SimpleButton
-              text={t('noAccout')}
-              onClick={goToRegister}
-              color="gray"
-            />
+            <SimpleButton type="submit" wide={true}>
+              {t('auth.enter')}
+            </SimpleButton>
+            <SimpleButton onClick={handleGuestClick} color="indigo" wide={true}>
+              {t('auth.guest')}
+            </SimpleButton>
+            <SimpleButton onClick={goToRegister} color="gray">
+              {t('auth.noAccout')}
+            </SimpleButton>
           </div>
         </form>
       </div>

@@ -9,9 +9,10 @@ import { useTranslation } from 'react-i18next';
 import { useActivitiesData, useMoodOptions } from '@/features/tracking/model';
 import { Box, Button, Text, useMantineColorScheme } from '@mantine/core';
 import { MoodSlider, NoteArea, ActivitiesSelect } from '@features/tracking/ui/';
+import { motion } from 'framer-motion';
 
 interface ReadyTrackProps {
-  mood: string; // Это значение (value), например, "happy"
+  mood: string;
   activities: string[];
   note: string;
   createdAt: string;
@@ -45,7 +46,7 @@ export const ReadyTrack = ({
 
   const getMoodLabel = (moodValue: string) => {
     const moodOption = moodOptions.find((option) => option.value === moodValue);
-    return moodOption ? moodOption.label : moodValue; // value как fallback
+    return moodOption ? moodOption.label : moodValue;
   };
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export const ReadyTrack = ({
     const uniqueValues = Array.from(new Set(activityValues));
     return uniqueValues.map((value) => {
       const activity = activitiesData.find((item) => item.value === value);
-      return activity ? activity.label : value; // value как fallback
+      return activity ? activity.label : value;
     });
   };
 
@@ -88,7 +89,10 @@ export const ReadyTrack = ({
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 0 }}
+      animate={{ opacity: 1, y: 20 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
       style={{
         backgroundColor: theme.colorScheme === 'dark' ? '#2C2E33' : '#FFFFFF',
         padding: '16px',
@@ -96,6 +100,10 @@ export const ReadyTrack = ({
         marginBottom: '12px',
         color: theme.colorScheme === 'dark' ? '#FFFFFF' : '#000000',
         position: 'relative',
+        overflow: 'visible',
+        minHeight: '100px',
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
       {isEditing ? (
@@ -116,9 +124,9 @@ export const ReadyTrack = ({
             >
               <IconArrowBackUp size={18} />
             </Button>
-            <Box mb="xl">
+            <Box mb="xl" style={{ marginTop: '30px' }}>
               <Text size="sm" mb="xs">
-                {t('mood')}: {getMoodLabel(editedMood)}
+                {t('trackCard.mood')}: {getMoodLabel(editedMood)}
               </Text>
               <MoodSlider mood={editedMood} setMood={setEditedMood} />
             </Box>
@@ -131,7 +139,7 @@ export const ReadyTrack = ({
             />
           </Box>
 
-          <Box mb="xl">
+          <Box mb="xl" style={{ minHeight: '100px' }}>
             <NoteArea note={editedNote} setNote={setEditedNote} />
           </Box>
 
@@ -142,7 +150,7 @@ export const ReadyTrack = ({
             leftSection={<IconCheck size={16} />}
             style={{ marginTop: '12px', width: '100%' }}
           >
-            {t('save')}
+            {t('trackCard.save')}
           </Button>
         </>
       ) : (
@@ -177,25 +185,43 @@ export const ReadyTrack = ({
           >
             <IconPencil size={16} />
           </Button>
-          <Text>
-            {t('mood')}: {getMoodLabel(mood)}
-          </Text>
-          <Text>
-            {t('activities')}: {getActivityLabels(activities).join(', ')}
-          </Text>
-          <Text>
-            {t('note')}: {note}
-          </Text>
-          <Text size="sm" c="dimmed">
-            {t('createdAt')}: {new Date(createdAt).toLocaleString()}
-          </Text>
-          {updatedAt && updatedAt !== createdAt ? (
-            <Text size="sm" c="dimmed">
-              {t('updatedAt')}: {new Date(updatedAt).toLocaleString()}
+
+          <div
+            style={{
+              paddingRight: '50px',
+              wordBreak: 'break-word',
+              overflow: 'visible',
+              flexGrow: 1,
+            }}
+          >
+            <Text style={{ wordBreak: 'break-word' }}>
+              {t('trackCard.mood')}: {getMoodLabel(mood)}
             </Text>
-          ) : null}
+            <Text style={{ wordBreak: 'break-word' }}>
+              {t('trackCard.activities')}:{' '}
+              {getActivityLabels(activities).join(', ')}
+            </Text>
+            <Text
+              style={{
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+                minHeight: '24px',
+              }}
+            >
+              {t('trackCard.note')}: {note}
+            </Text>
+            <Text size="sm" c="dimmed">
+              {t('trackCard.createdAt')}: {new Date(createdAt).toLocaleString()}
+            </Text>
+            {updatedAt && updatedAt !== createdAt ? (
+              <Text size="sm" c="dimmed">
+                {t('trackCard.updatedAt')}:{' '}
+                {new Date(updatedAt).toLocaleString()}
+              </Text>
+            ) : null}
+          </div>
         </>
       )}
-    </div>
+    </motion.div>
   );
 };

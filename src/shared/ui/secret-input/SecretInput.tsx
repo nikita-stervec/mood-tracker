@@ -1,8 +1,8 @@
 import { useDisclosure } from '@mantine/hooks';
-import { PasswordInput } from '@mantine/core';
+import { InputProps, PasswordInput } from '@mantine/core';
 import React from 'react';
 
-interface SecretInputProps {
+interface SecretInputProps extends InputProps {
   placeholder?: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;

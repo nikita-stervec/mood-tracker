@@ -20,7 +20,7 @@ export const ThemeSwitcher = ({ color }: ThemeSwitcherProps) => {
       style={{ transition: 'background-color 0.3s ease, color 0.3s ease' }}
     >
       <Text className={styles.desktopText}>
-        {isDark ? t('lightTheme') : t('darkTheme')}
+        {isDark ? t('settings.lightTheme') : t('settings.darkTheme')}
       </Text>
       <IconSun
         size="1.2rem"

@@ -23,7 +23,7 @@ export const UserCard = () => {
         {nameCutter(user.name ? user.name : user.email)}
       </Avatar>
       <Box>
-        <span className={styles['welcome']}>{t('welcomeBlock')}</span>
+        <span className={styles['welcome']}>{t('card.welcomeBlock')}</span>
         <div className={styles['name']}>
           {user.name ? user.name : user.email}
         </div>

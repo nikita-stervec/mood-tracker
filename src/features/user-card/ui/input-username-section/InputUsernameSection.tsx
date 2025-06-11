@@ -31,7 +31,7 @@ export const InputUsernameSection = () => {
     >
       <SimpleInput
         size="sm"
-        placeholder={t('namePlaceholder')}
+        placeholder={t('card.namePlaceholder')}
         value={name}
         onChange={handleInputChange}
       />

@@ -4,7 +4,6 @@ import { Tracker } from '@/widgets/tracker';
 export const TrackPage = () => {
   return (
     <div>
-      <HeaderComponent />
       <Tracker />
     </div>
   );

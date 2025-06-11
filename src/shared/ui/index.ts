@@ -1,3 +1,5 @@
+export { AnimatedPage } from './animated-page/animatedPage';
+export { SimpleNotification } from './notifications/Notifications';
 export { TextLogo } from './text-logo/TextLogo';
 export { SimpleButton } from './simple-button/Button';
 export { SecretInput } from './secret-input/SecretInput';

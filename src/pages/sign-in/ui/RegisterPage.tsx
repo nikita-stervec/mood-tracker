@@ -5,10 +5,9 @@ import { useForm, useRegister } from '@/features/auth';
 import { useGuestClick } from '@features/auth';
 import { useRoute } from '@/features/auth';
 import { useTranslation } from 'react-i18next';
-import { HeaderComponent } from '@/widgets/header';
 
 export const RegisterPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { goToLogin } = useRoute();
   const handleGuestClick = useGuestClick();
   const { email, password, handleEmailChange, handlePasswordChange } =
@@ -23,36 +22,33 @@ export const RegisterPage = () => {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['section']}>
-        <span className={styles['text']}>{t('goToRegister')}</span>
+        <span className={styles['text']}>{t('auth.register')}</span>
         <form className={styles['form']} onSubmit={onSubmit}>
           <div className={styles['input']}>
             <SimpleInput
               email={true}
               type="email"
-              placeholder={t('email')}
+              placeholder={t('auth.email')}
               value={email}
               onChange={handleEmailChange}
             />
             <SecretInput
-              placeholder={t('password')}
+              placeholder={t('auth.password')}
               value={password}
               onChange={handlePasswordChange}
             />
           </div>
           {error && <p className={styles['error']}>{error}</p>}
           <div className={styles['button_section']}>
-            <SimpleButton type="submit" text={t('register')} wide={true} />
-            <SimpleButton
-              onClick={handleGuestClick}
-              text={t('goToGuest')}
-              color="indigo"
-              wide={true}
-            />
-            <SimpleButton
-              text={t('haveAccout')}
-              onClick={goToLogin}
-              color="gray"
-            />
+            <SimpleButton type="submit" wide={true}>
+              {t('auth.register')}
+            </SimpleButton>
+            <SimpleButton onClick={handleGuestClick} color="indigo" wide={true}>
+              {t('auth.guest')}
+            </SimpleButton>
+            <SimpleButton onClick={goToLogin} color="gray">
+              {t('auth.haveAccout')}
+            </SimpleButton>
           </div>
         </form>
       </div>

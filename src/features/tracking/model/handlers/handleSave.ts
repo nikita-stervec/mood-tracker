@@ -10,11 +10,10 @@ export const handleSave = (
   setActivities: (activities: string[]) => void,
   setNote: (note: string) => void,
 ) => {
-  // Преобразуем mood в нижний регистр
   const normalizedMood = mood.toLowerCase();
 
   const newTrack = {
-    mood: normalizedMood, // Используем значение в нижнем регистре
+    mood: normalizedMood,
     activities,
     note,
     createdAt: new Date().toISOString(),

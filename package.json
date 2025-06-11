@@ -13,12 +13,14 @@
     "generate-structure": "python generate_structure.py"
   },
   "dependencies": {
-    "@mantine/core": "^7.16.0",
-    "@mantine/hooks": "^7.15.3",
+    "@mantine/core": "^8.1.0",
+    "@mantine/hooks": "^8.1.0",
+    "@mantine/notifications": "^8.1.0",
     "@tabler/icons-react": "^3.28.1",
     "@vitejs/plugin-react": "^4.3.4",
     "axios": "^1.7.9",
     "firebase": "^11.1.0",
+    "framer-motion": "^12.17.0",
     "i18next": "^24.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

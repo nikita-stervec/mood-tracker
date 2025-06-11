@@ -12,11 +12,13 @@ export const useMoodOptions = (): MoodOption[] => {
 
   return useMemo(() => {
     return [
-      { value: 'sad', label: t('sad'), emoji: '😢' },
-      { value: 'tired', label: t('tired'), emoji: '😴' },
-      { value: 'neutral', label: t('neutral'), emoji: '😐' },
-      { value: 'inspired', label: t('inspired'), emoji: '✨' },
-      { value: 'happy', label: t('happy'), emoji: '😊' },
+      { value: 'angry', label: t('moodList.angry'), emoji: '😠' },
+      { value: 'sad', label: t('moodList.sad'), emoji: '😢' },
+      { value: 'tired', label: t('moodList.tired'), emoji: '😴' },
+      { value: 'calm', label: t('moodList.calm'), emoji: '😌' },
+      { value: 'happy', label: t('moodList.happy'), emoji: '😊' },
+      { value: 'inspired', label: t('moodList.inspired'), emoji: '✨' },
+      { value: 'excited', label: t('moodList.excited'), emoji: '😄' },
     ];
   }, [t]);
 };

@@ -7,16 +7,13 @@ export interface MoodOption {
 }
 
 export const moodOptions: MoodOption[] = [
-  { value: 'sad', label: t('sad'), emoji: '😢' },
-  { value: 'anxious', label: t('anxious'), emoji: '😟' },
-  { value: 'tired', label: t('tired'), emoji: '😴' },
-  { value: 'irritated', label: t('irritated'), emoji: '😠' },
-  { value: 'neutral', label: t('neutral'), emoji: '😐' },
-  { value: 'calm', label: t('calm'), emoji: '🧘' },
-  { value: 'energetic', label: t('energetic'), emoji: '💪' },
-  { value: 'inspired', label: t('inspired'), emoji: '✨' },
-  { value: 'loving', label: t('loving'), emoji: '😍' },
-  { value: 'happy', label: t('happy'), emoji: '😊' },
+  { value: 'angry', label: t('moodList.angry'), emoji: '😠' },
+  { value: 'sad', label: t('moodList.sad'), emoji: '😢' },
+  { value: 'tired', label: t('moodList.tired'), emoji: '😴' },
+  { value: 'calm', label: t('moodList.calm'), emoji: '😌' },
+  { value: 'happy', label: t('moodList.happy'), emoji: '😊' },
+  { value: 'inspired', label: t('moodList.inspired'), emoji: '✨' },
+  { value: 'excited', label: t('moodList.excited'), emoji: '😄' },
 ];
 
 export interface TrackStateType {

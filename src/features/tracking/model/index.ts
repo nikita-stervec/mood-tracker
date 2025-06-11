@@ -1,3 +1,4 @@
+export { validateTracking } from './handlers/validateTracking';
 export { useMoodOptions } from './hooks/useMoodOptions';
 export { useActivitiesData } from './hooks/useActivitiesData';
 
