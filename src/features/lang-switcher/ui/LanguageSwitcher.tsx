@@ -2,8 +2,6 @@ import { useRecoilState } from 'recoil';
 import { useTranslation } from 'react-i18next';
 import { Button, Group } from '@mantine/core';
 import { UserState } from '@/entities/User/model/User';
-import { UserLanguage } from '@/entities/User/model/types/User';
-import { SimpleButton } from '@/shared/ui';
 
 interface LanguageSwitcherProps {
   color?: string;
@@ -19,16 +17,14 @@ export const LanguageSwitcher = ({ color }: LanguageSwitcherProps) => {
   ];
 
   const changeLanguage = (language: string) => {
-    i18n.changeLanguage(language).then(() => {
-      setUser((prevUser) => ({
-        ...prevUser,
-        language: language as UserLanguage,
-      }));
-    });
+    setUser((prev) => ({
+      ...prev,
+      language: language as typeof user.language,
+    }));
   };
 
   return (
-    <Group gap="xs" flex="flex" justify="center">
+    <Group gap="xs" justify="center">
       {languages.map((lang) => (
         <Button
           color={color}

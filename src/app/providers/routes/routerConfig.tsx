@@ -6,6 +6,7 @@ import { NotFoundPage } from '@/pages/not-found';
 import { RegisterPage } from '@/pages/sign-in';
 import { LoginPage } from '@/pages/sign-in';
 import { TrackPage } from '@/pages/track';
+import { StatisticsPage } from '@/pages/stats';
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: 'register',
         element: <RegisterPage />,
+      },
+      {
+        path: 'charts',
+        element: <StatisticsPage />,
       },
       {
         path: '*',

@@ -101,6 +101,23 @@ export const HeaderComponent = ({ isAuthPage }: HeaderProps) => {
           {t('header.track')}
         </SimpleButton>
 
+        <SimpleButton
+          variant="light"
+          onClick={() => navigate('/charts')}
+          style={{
+            backgroundColor: isDark
+              ? theme.colors.dark[6]
+              : theme.colors.gray[0],
+            color: isDark ? theme.white : theme.colors.dark[7],
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+          }}
+        >
+          {t('header.chart')}
+        </SimpleButton>
+
         {user.role === 'guest' ? (
           <>
             <SimpleButton

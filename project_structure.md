@@ -1,14 +1,10 @@
+# ��������� �������
+
+- `README.md`
 - `src/`
   - `app/`
-    - `api/`
-      - `apiClient.ts`
-      - `axiosConfig.ts`
-      - `types/`
-        - `apiTypes.ts`
     - `App.tsx`
     - `index.tsx`
-    - `model/`
-      - `firebase.ts`
     - `providers/`
       - `i18n/`
         - `en.ts`
@@ -52,6 +48,26 @@
       - `ui/`
         - `ThemeSwitcher.module.scss`
         - `ThemeSwitcher.tsx`
+    - `tracking/`
+      - `model/`
+        - `handlers/`
+          - `handleSave.ts`
+          - `handleSaveTrack.ts`
+          - `handleSort.ts`
+          - `validateTracking.ts`
+        - `hooks/`
+          - `useActivitiesData.tsx`
+          - `useMoodOptions.tsx`
+        - `index.ts`
+      - `ui/`
+        - `activities-select/`
+          - `ActivitiesSelect.tsx`
+        - `index.ts`
+        - `mood-slider/`
+          - `MoodSlider.tsx`
+        - `note-area/`
+          - `NoteArea.tsx`
+        - `ReadyTrack.tsx`
     - `user-card/`
       - `index.ts`
       - `model/`
@@ -65,6 +81,7 @@
     - `about/`
       - `index.ts`
       - `ui/`
+        - `AboutContainer.tsx`
         - `AboutPage.tsx`
     - `home/`
       - `index.ts`
@@ -73,6 +90,7 @@
     - `not-found/`
       - `index.ts`
       - `ui/`
+        - `NotFoundContainer.tsx`
         - `NotFoundPage.tsx`
     - `sign-in/`
       - `index.ts`
@@ -99,18 +117,28 @@
           - `Comfortaa-SemiBold.ttf`
         - `Pangolin/`
           - `Pangolin-Regular.ttf`
+    - `config/`
+      - `api/`
+        - `apiClient.ts`
+        - `axiosConfig.ts`
+        - `types/`
+          - `apiTypes.ts`
+      - `model/`
+        - `firebase.ts`
     - `styles/`
       - `global.scss`
       - `mixins.scss`
       - `variables.scss`
     - `ui/`
+      - `animated-page/`
+        - `animatedPage.tsx`
       - `dots-background/`
         - `DotsBackground.tsx`
       - `index.ts`
+      - `notifications/`
+        - `Notifications.tsx`
       - `quote/`
         - `Quote.tsx`
-      - `ready-track/`
-        - `ReadyTrack.tsx`
       - `secret-input/`
         - `SecretInput.tsx`
       - `simple-button/`
@@ -128,18 +156,7 @@
     - `tracker/`
       - `index.ts`
       - `model/`
-        - `handlers/`
-          - `handleSave.ts`
-          - `handleSaveTrack.ts`
-        - `index.ts`
       - `ui/`
-        - `activities-select/`
-          - `ActivitiesSelect.tsx`
-        - `index.ts`
-        - `mood-slider/`
-          - `MoodSlider.tsx`
-        - `note-area/`
-          - `NoteArea.tsx`
         - `Tracker.module.scss`
         - `Tracker.tsx`
     - `user-section/`
